@@ -29,17 +29,37 @@ export const components = {pre: CodeBlock}
   title={frontmatter.title}
   authors={[
     {
-      name: "Haibo Jin",
-      url: "https://haibojin001.github.io/",
-      institution: "School of Information Sciences \n University of Illinois at Urbana-Champaign",
+      name: "Peiyan Zhang",
+      url: "https://peiyance.github.io/",
+      institution: "Hong Kong University of Science and Technology",
     },
     {
-      name: "Andy Zhou",
+      name: "Haibo Jin",
+      url: "https://haibojin001.github.io/",
+      institution: "University of Illinois at Urbana-Champaign",
+    },
+    {
+      name: "Leyang Hu",
       url: "https://www.andyzhou.ai/",
       institution: "Computer Science \n Lapis Labs \n University of Illinois Urbana-Champaign",
     },
     {
-      name: "Joe D. Menke",
+      name: "Xinnuo Li",
+      url: "https://github.com/jomenke",
+      institution: "School of Information Sciences \n University of Illinois at Urbana-Champaign",
+    },
+    {
+      name: "Liying Kang",
+      url: "https://github.com/jomenke",
+      institution: "School of Information Sciences \n University of Illinois at Urbana-Champaign",
+    },
+    {
+      name: "Man Luo",
+      url: "https://github.com/jomenke",
+      institution: "School of Information Sciences \n University of Illinois at Urbana-Champaign",
+    },
+    {
+      name: "Yangqiu Song",
       url: "https://github.com/jomenke",
       institution: "School of Information Sciences \n University of Illinois at Urbana-Champaign",
     },
@@ -47,30 +67,29 @@ export const components = {pre: CodeBlock}
       name: "Haohan Wang",
       url: "https://haohanwang.github.io/",
       institution: "School of Information Sciences \n University of Illinois at Urbana-Champaign",
-      notes: ["*"],
+      notes: ["†"],
     },
   ]}
-  conference="Thirty-Eighth Annual Conference on Neural Information Processing Systems (NeurIPS 2024)"
   notes={[
     {
-      symbol: "*",
+      symbol: "†",
       text: "Corresponding Author",
     },
   ]}
   links={[
     {
       name: "Paper",
-      url: "https://arxiv.org/pdf/2405.20413",
+      url: "https://arxiv.org/pdf/2412.03092",
       icon: "fa-solid:file-pdf",
     },
     {
       name: "Code",
-      url: "https://github.com/Allen-piexl/llm_moderation_attack",
+      url: "https://github.com/Peiyance/REVOLVE",
       icon: "mdi:github",
     },
     {
       name: "arXiv",
-      url: "https://arxiv.org/abs/2405.20413",
+      url: "https://arxiv.org/abs/2412.03092",
       icon: "academicons:arxiv",
     },
   ]}
@@ -82,7 +101,7 @@ export const components = {pre: CodeBlock}
 
 ## Abstract
 
-Large Language Models (LLMs) are typically harmless but remain vulnerable to carefully crafted prompts known as "jailbreaks", which can bypass protective measures and induce harmful behavior. Recent advancements in LLMs have incorporated moderation guardrails that can filter outputs, which trigger processing errors for certain malicious questions. Existing red-teaming benchmarks often neglect to include questions that trigger moderation guardrails, making it difficult to evaluate jailbreak effectiveness. To address this issue, we introduce JAMBench, a harmful behavior benchmark designed to trigger and evaluate moderation guardrails. JAMBench involves 160 manually crafted instructions covering four major risk categories at multiple severity levels. Furthermore, we propose a jailbreak method, JAM (Jailbreak Against Moderation), designed to attack moderation guardrails using jailbreak prefixes to bypass input-level filters and a fine-tuned shadow model functionally equivalent to the guardrail model to generate cipher characters to bypass output-level filters. Our extensive experiments on four LLMs demonstrate that JAM achieves higher jailbreak success (~ × 19.88) and lower filtered-out rates (~ × 1/6) than baselines.
+Recent advancements in large language models (LLMs) have significantly enhanced the ability of LLM-based systems to perform complex tasks through natural language processing and tool interaction. However, optimizing these LLM-based systems for specific tasks remains challenging, often requiring manual interventions like prompt engineering and hyperparameter tuning. Existing automatic optimization methods, such as textual feedback-based techniques (e.g., TextGrad), tend to focus on immediate feedback, analogous to using immediate derivatives in traditional numerical gradient descent. However, relying solely on such feedback can be limited when the adjustments made in response to this feedback are either too small or fluctuate irregularly, potentially slowing down or even stalling the optimization process.  To overcome these challenges, more adaptive methods are needed, especially in situations where the system’s response is evolving slowly or unpredictably. In this paper, we introduce **REVOLVE**, an optimization method that tracks how **R**esponses **EVOLVE** across iterations in LLM systems. By focusing on the evolution of responses over time, REVOLVE enables more stable and effective optimization by making thoughtful, progressive adjustments at each step. We evaluate the effectiveness of REVOLVE across three tasks: prompt optimization, solution optimization, and code optimization. Experimental results demonstrate that REVOLVE outperforms competitive baselines, achieving a **7.8%** improvement in prompt optimization, a **20.72%** gain in solution refinement, and a **29.17%** increase in code optimization. Additionally, REVOLVE converges in fewer iterations, resulting in significant computational savings. These advantages highlight its adaptability and efficiency, positioning REVOLVE as a valuable tool for optimizing LLM-based systems and accelerating the development of next-generation AI technologies.
 
 </HighlightedSection>
 
