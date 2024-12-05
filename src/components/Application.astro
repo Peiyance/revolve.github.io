@@ -1,57 +1,95 @@
 ---
-const applications = [
+const cards = [
   {
-    title: "Application 1",
-    description: "This is the description for the first application demonstrating the effectiveness of TextGrad in real-world scenarios.",
-    svgIcon: `<svg width="100" height="100" viewBox="0 0 600 600" xmlns="http://www.w3.org/2000/svg">
-                <path stroke="none" stroke-width="0" fill="#f5f5f5" d="M300,521.0016835830174C376.1290562159157,517.8887921683347,466.0731472004068,529.7835943286574,510.70327084640275,468.03025145048787C554.3714126377745,407.6079735673963,508.03601936045806,328.9844924480964,491.2728898941984,256.3432110539036C474.5976632858925,184.082847569629,479.9380746630129,96.60480741107993,416.23090153303,58.64404602377083C348.86323505073057,18.502131276798302,261.93793281208167,40.57373210992963,193.5410806939664,78.93577620505333C130.42746243093433,..." />
-              </svg>`,
+    title: "Coding",
+    subtitle: "We optimize solutions to difficult coding problems from LeetCode, where we boost the performance of gpt-4o and best existing method by 20% relevant performance gain.",
+    imageUrl: "https://raw.githubusercontent.com/haibojin001/Figure4user/main/uiucdream.png",
   },
   {
-    title: "Application 2",
-    description: "This is the description for the second application showcasing how TextGrad works effectively across various industries.",
-    svgIcon: `<svg width="100" height="100" viewBox="0 0 600 600" xmlns="http://www.w3.org/2000/svg">
-                <path stroke="none" stroke-width="0" fill="#f5f5f5" d="M300,521.0016835830174C376.1290562159157,517.8887921683347,466.0731472004068,529.7835943286574,510.70327084640275,468.03025145048787C554.3714126377745,407.6079735673963,508.03601936045806,328.9844924480964,491.2728898941984,256.3432110539036C474.5976632858925,184.082847569629,479.9380746630129,96.60480741107993,416.23090153303,58.64404602377083C348.86323505073057,18.502131276798302,261.93793281208167,40.57373210992963,193.5410806939664,78.93577620505333C130.42746243093433,..." />
-              </svg>`,
+    title: "Problem solving",
+    subtitle: "We optimize solutions to complex scientific questions to improve the zero-shot performance of GPT-4o. For instance, in Google-Proof Question Answering bench-mark, we improve the zero-shot accuracy from 51% to 55% by refining the solutions at test-time.",
+    imageUrl: "https://raw.githubusercontent.com/haibojin001/Figure4user/main/slack.jpg",
   },
   {
-    title: "Application 3",
-    description: "A third example of how TextGrad can be applied in diverse fields to improve efficiency and reliability.",
-    svgIcon: `<svg width="100" height="100" viewBox="0 0 600 600" xmlns="http://www.w3.org/2000/svg">
-                <path stroke="none" stroke-width="0" fill="#f5f5f5" d="M300,521.0016835830174C376.1290562159157,517.8887921683347,466.0731472004068,529.7835943286574,510.70327084640275,468.03025145048787C554.3714126377745,407.6079735673963,508.03601936045806,328.9844924480964,491.2728898941984,256.3432110539036C474.5976632858925,184.082847569629,479.9380746630129,96.60480741107993,416.23090153303,58.64404602377083C348.86323505073057,18.502131276798302,261.93793281208167,40.57373210992963,193.5410806939664,78.93577620505333C130.42746243093433,..." />
-              </svg>`,
-  },
-  {
-    title: "Application 4",
-    description: "TextGrad is transforming multiple sectors, providing cutting-edge solutions and accelerating growth.",
-    svgIcon: `<svg width="100" height="100" viewBox="0 0 600 600" xmlns="http://www.w3.org/2000/svg">
-                <path stroke="none" stroke-width="0" fill="#f5f5f5" d="M300,521.0016835830174C376.1290562159157,517.8887921683347,466.0731472004068,529.7835943286574,510.70327084640275,468.03025145048787C554.3714126377745,407.6079735673963,508.03601936045806,328.9844924480964,491.2728898941984,256.3432110539036C474.5976632858925,184.082847569629,479.9380746630129,96.60480741107993,416.23090153303,58.64404602377083C348.86323505073057,18.502131276798302,261.93793281208167,40.57373210992963,193.5410806939664,78.93577620505333C130.42746243093433,..." />
-              </svg>`,
+    title: "Reasoning",
+    subtitle: "We optimize prompts to improve the LLM performance, where we push the performance of GPT-3.5 close to GPT-4 in several reasoning tasks.",
+    imageUrl: "https://raw.githubusercontent.com/haibojin001/Figure4user/main/suggestions.png",
   }
 ];
 ---
 
-<!-- application Section -->
-<section id="application" class="services section">
-  <!-- Section Title -->
-  <div class="container section-title" data-aos="fade-up">
-    <h2>Successful Applications</h2>
-    <p>Here are examples of successful implementations that demonstrate the effectiveness and versatility of TextGrad across various applications.</p>
-  </div><!-- End Section Title -->
-
-  <div class="container">
-    <div class="row gy-4">
-      {applications.map((app, index) => (
-        <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay={index * 10}>
-          <div class="service-item item-cyan position-relative">
-            <div class="icon">
-              {app.svgIcon}
-            </div>
-            <h4>{app.title}</h4>
-            <p>{app.description}</p>
-          </div>
+<section class="get-involved">
+  <div class="card-container">
+    {cards.map((card) => (
+      <div class="card">
+        <img src={card.imageUrl} alt={card.title} class="card-image" />
+        <div class="card-content">
+          <h3>{card.title}</h3>
+          <p>{card.subtitle}</p>
         </div>
-      ))}
-    </div>
+      </div>
+    ))}
   </div>
 </section>
+
+<style>
+  .get-involved {
+    text-align: center;
+    padding: 40px 0;
+    background-color: #f4f4f4;
+  }
+
+  .get-involved h2 {
+    font-size: 2.5rem;
+    margin-bottom: 40px;
+    color: #333;
+  }
+
+  .card-container {
+    display: flex;
+    justify-content: space-around;
+    max-width: 1200px;
+    margin: 0 auto;
+    gap: 20px;
+    padding: 0 20px;
+  }
+
+  .card {
+    flex: 1;
+    max-width: 250px;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    text-align: left;
+    transition: transform 0.3s ease;
+  }
+
+  .card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.15);
+  }
+
+  .card-image {
+    width: 100%;
+    height: 160px;
+    object-fit: cover;
+  }
+
+  .card-content {
+    padding: 20px;
+  }
+
+  .card h3 {
+    font-size: 1.25rem;
+    color: #333;
+    margin: 0 0 10px;
+  }
+
+  .card p {
+    font-size: 0.95rem;
+    color: #666;
+    margin-bottom: 15px;
+    line-height: 1.4;
+  }
+</style>
