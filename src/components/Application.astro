@@ -85,6 +85,11 @@ const cards = [
 
   .card-content {
     padding: 10px;
+    display: flex; /* Flexbox for content alignment */
+    flex-direction: column; /* Stack title and text vertically */
+    justify-content: flex-start; /* Align to the top */
+    padding: 10px; /* Padding for content */
+    text-align: center; /* Center text */
     text-align: center; /* Center text within content */
   }
 
@@ -95,9 +100,9 @@ const cards = [
   }
 
   .card p {
-    font-size: 1rem;
+    font-size: 0.75rem;
     color: #666;
-    margin-bottom: 10px;
+    margin: 0;
   }
 
   .card a {
