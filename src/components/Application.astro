@@ -35,20 +35,20 @@ const cards = [
 <style>
   .get-involved {
     text-align: center;
-    padding: 10px 0;
+    padding: 30px 0;
     background-color: #f4f4f4;
   }
 
   .get-involved h2 {
     font-size: 2.5rem;
-    margin-bottom: 10px;
+    margin-bottom: 30px;
     color: #333;
   }
 
   .card-container {
     display: flex;
     justify-content: space-around;
-    max-width: 1200px;
+    max-width: 1600px;
     margin: 0 auto;
     gap: 20px;
     padding: 0 20px;
@@ -66,6 +66,10 @@ const cards = [
     text-align: left;
     transition: transform 0.3s ease;
     margin: 0 10px;
+    display: flex; /* Use flexbox for centering */
+    flex-direction: column; /* Stack children vertically */
+    justify-content: center; /* Center vertically */
+    align-items: center; /* Center horizontally */
   }
 
   .card:hover {
