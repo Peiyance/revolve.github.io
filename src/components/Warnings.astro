@@ -1,0 +1,19 @@
+---
+const showExample = `document.querySelector('#example-content').style.display = this.checked ? 'block' : 'none';`;
+---
+
+<div style="border: 1px solid #ffa500; padding: 1rem; background-color: #fff3cd; color: #856404; border-radius: 5px;">
+  <strong>⚠️ Warning</strong>
+  <p>Please be advised that the following content may include materials that could elicit strong or adverse emotional responses. By proceeding, you acknowledge and accept full responsibility for any potential impacts, including emotional distress or subsequent actions taken in response to the content. The information provided is for research purposes only, and the authors assume no liability for any emotional, psychological, or behavioral effects experienced after engaging with this material. If you understand and accept these terms, please confirm to proceed.</p>
+  <label>
+    <input
+      type="checkbox"
+      onchange={showExample}
+    />
+    I have read and agree to continue
+  </label>
+</div>
+
+<div id="example-content" style="display: none;">
+  <slot />
+</div>
