@@ -1,6 +1,6 @@
 ---
 layout: ../layouts/Layout.astro
-title: Academic Project Page Template
+title: Revolve: Optimizing AI Systems by Tracking Response Evolution in Textual Optimization
 description: Simple project page template for your research paper, built with Astro and Tailwind CSS
 favicon: favicon.svg
 thumbnail: screenshot.png
@@ -32,49 +32,63 @@ export const components = {pre: CodeBlock, table: Table}
     {
       name: "Peiyan Zhang",
       url: "https://peiyance.github.io/",
-      institution: "Independent",
-      notes: ["*", "†"],
+      institution: "Department of Computer Science \\ Hong Kong University of Science and Technology",
     },
     {
-      name: "Author Two",
-      institution: "Institution Two",
-      notes: ["*", "†"],
+      name: "Haibo Jin",
+      url: "https://peiyance.github.io/",
+      institution: "School of Information Sciences \\ University of Illinois at Urbana-Champaign",
     },
     {
-      name: "Author Three",
-      institution: "Institution Three",
+      name: "Leyang Hu",
+      institution: "Brown University",
+    },
+    {
+      name: "Xinnuo Li",
+      institution: "University of Michigan - Ann Arbor",
+    },
+  {
+      name: "Liying Kang",
+      institution: "Hong Kong Polytechnic University",
+    },
+{
+      name: "Man Luo",
+      url: "https://luomancs.github.io/",
+      institution: "Intel Lab",
+    },
+{
+      name: "Yangqiu Song",
+      url: "https://www.cse.ust.hk/~yqsong/",
+      institution: "Department of Computer Science \\ Hong Kong University of Science and Technology",
+    },
+{
+      name: "Haohan Wang",
+      url: "https://haohanwang.github.io/",
+      institution: "School of Information Sciences\\University of Illinois at Urbana-Champaign",
       notes: ["†"],
-    },
-    {
-      name: "Author Four",
-      institution: "Institution Four",
     },
   ]}
   conference="Conference Name"
   notes={[
     {
-      symbol: "*",
-      text: "author note one",
-    },
-    {
       symbol: "†",
-      text: "author note two",
+      text: "Corresponding Author",
     },
   ]}
   links={[
     {
       name: "Paper",
-      url: "",
+      url: "https://arxiv.org/pdf/2412.03092",
       icon: "fa-solid:file-pdf",
     },
     {
       name: "Code",
-      url: "https://github.com/RomanHauksson/academic-project-astro-template",
+      url: "https://github.com/Peiyance/REVOLVE",
       icon: "mdi:github",
     },
     {
       name: "arXiv",
-      url: "",
+      url: "https://arxiv.org/abs/2412.03092",
       icon: "academicons:arxiv",
     },
   ]}
@@ -86,7 +100,8 @@ export const components = {pre: CodeBlock, table: Table}
 
 ## Abstract
 
-This is a live demo for a template you can use to create a simple project page for your research paper. See the code for the template and instructions on how to use it yourself [here](https://github.com/RomanHauksson/academic-project-astro-template). It's made with the [Astro web framework](https://astro.build/) and styled with [Tailwind CSS](https://tailwindcss.com/). You write the content in [MDX](https://mdxjs.com/), which enables markdown formatting like **bold**, _italics_, and ~strikethrough~, as well as custom components like <SmallCaps>small caps.</SmallCaps>
+Recent advancements in large language models (LLMs) have significantly enhanced the ability of LLM-based systems to perform complex tasks through natural language processing and tool interaction. However, optimizing these LLM-based systems for specific tasks remains challenging, often requiring manual interventions like prompt engineering and hyperparameter tuning. Existing automatic optimization methods, such as textual feedback-based techniques (e.g., TextGrad), tend to focus on immediate feedback, analogous to using immediate derivatives in traditional numerical gradient descent. However, relying solely on such feedback can be limited when the adjustments made in response to this feedback are either too small or fluctuate irregularly, potentially slowing down or even stalling the optimization process.  To overcome these challenges, more adaptive methods are needed, especially in situations where the system’s response is evolving slowly or unpredictably. In this paper, we introduce **REVOLVE**, an optimization method that tracks how **R**esponses **EVOLVE**
+across iterations in LLM systems. By focusing on the evolution of responses over time, REVOLVE enables more stable and effective optimization by making thoughtful, progressive adjustments at each step. We evaluate the effectiveness of REVOLVE across three tasks: prompt optimization, solution optimization, and code optimization. Experimental results demonstrate that REVOLVE outperforms competitive baselines, achieving a **7.8%** improvement in prompt optimization, a **20.72%** gain in solution refinement, and a **29.17%** increase in code optimization. Additionally, REVOLVE converges in fewer iterations, resulting in significant computational savings. These advantages highlight its adaptability and efficiency, positioning REVOLVE as a valuable tool for optimizing LLM-based systems and accelerating the development of next-generation AI technologies.
 
 </HighlightedSection>
 
