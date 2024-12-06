@@ -9,33 +9,40 @@ const { authors } = Astro.props;
 ---
 
 <div class="text-center">
-  <!-- Render all authors in one line -->
-  <p class="text-xl flex flex-wrap justify-center gap-x-4">
+  <!-- Render all authors in one line with institution numbers above them -->
+  <div class="flex justify-center flex-wrap gap-x-6 gap-y-4">
     {
       authors.map((author, index) => (
-        <>
-          {author.url ? (
-            <a href={author.url} class="hover:underline">
-              {author.name}
-            </a>
-          ) : (
-            author.name
+        <div class="flex flex-col items-center">
+          <!-- Institution number above the author -->
+          {author.institution && (
+            <span class="text-sm text-gray-500">{index + 1}</span>
           )}
-          {author.notes && (
-            <sup>
-              {author.notes.map(
-                (note, i, array) =>
-                  note + (i < array.length - 1 ? "," : "")
-              )}
-            </sup>
-          )}
-          {index < authors.length - 1 && <span>,</span>}
-        </>
+          
+          <!-- Author name (with link if available) -->
+          <span class="text-xl">
+            {author.url ? (
+              <a href={author.url} class="hover:underline">
+                {author.name}
+              </a>
+            ) : (
+              author.name
+            )}
+            {author.notes && (
+              <sup>
+                {author.notes.map(
+                  (note, i, array) =>
+                    note + (i < array.length - 1 ? "," : "")
+                )}
+              </sup>
+            )}
+          </span>
+        </div>
       ))
     }
-  </p>
+  </div>
 
-  <!-- Render all institutions in a separate line -->
+  <!-- Render institutions in a separate line -->
   <p class="text-md mt-2">
     {
       authors
