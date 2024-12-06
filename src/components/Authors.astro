@@ -9,17 +9,12 @@ const { authors } = Astro.props;
 ---
 
 <div class="text-center">
-  <!-- Render all authors in one line with institution numbers above them -->
+  <!-- Render all authors in one line with institution indices in superscript -->
   <div class="flex justify-center flex-wrap gap-x-6 gap-y-4">
     {
       authors.map((author, index) => (
         <div class="flex flex-col items-center">
-          <!-- Institution number above the author -->
-          {author.institution && (
-            <span class="text-sm text-gray-500">{index + 1}</span>
-          )}
-          
-          <!-- Author name (with link if available) -->
+          <!-- Author name (with link if available) and institution index as superscript -->
           <span class="text-xl">
             {author.url ? (
               <a href={author.url} class="hover:underline">
@@ -29,12 +24,15 @@ const { authors } = Astro.props;
               author.name
             )}
             {author.notes && (
-              <sup>
+              <sup class="text-sm text-gray-500">
                 {author.notes.map(
                   (note, i, array) =>
                     note + (i < array.length - 1 ? "," : "")
                 )}
               </sup>
+            )}
+            {author.institution && (
+              <sup class="text-sm text-gray-500 ml-2">{index + 1}</sup> // Institution index as superscript next to author
             )}
           </span>
         </div>
@@ -42,13 +40,14 @@ const { authors } = Astro.props;
     }
   </div>
 
-  <!-- Render institutions in a separate line -->
+  <!-- Render institutions with their indices in a separate line -->
   <p class="text-md mt-2">
     {
-      authors
-        .map((author) => author.institution)
-        .filter((institution, index, array) => array.indexOf(institution) === index) // Remove duplicates
-        .join(", ")
+      authors.map((author, index) => author.institution ? (
+        <span key={index} class="text-sm">
+          <sup class="text-sm text-gray-500">{index + 1}</sup> {author.institution} <span class="mr-2"/>
+        </span>
+      ) : null)
     }
   </p>
 </div>
