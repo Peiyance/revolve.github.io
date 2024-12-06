@@ -33,18 +33,6 @@ const cards = [
 </section>
 
 <style>
-  .get-involved {
-    text-align: center;
-    padding: 20px 0;
-    background-color: #f4f4f4;
-  }
-
-  .get-involved h2 {
-    font-size: 2.5rem;
-    margin-bottom: 20px;
-    color: #333;
-  }
-
   .card-container {
     display: flex;
     justify-content: space-around;
@@ -57,19 +45,20 @@ const cards = [
 
   .card {
     flex: 1;
-    max-width: 100%; 
-    height: 350px; /* Ensure height equals width for square shape */
+    max-width: 300px; /* 设置卡片宽度一致 */
+    height: 400px; /* 统一卡片高度 */
     background-color: #fff;
     border-radius: 8px;
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
     overflow: hidden;
-    text-align: left;
+    text-align: center;
     transition: transform 0.3s ease;
     margin: 0 10px;
-    display: flex; /* Use flexbox for centering */
-    flex-direction: column; /* Stack children vertically */
-    justify-content: center; /* Center vertically */
-    align-items: center; /* Center horizontally */
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* 水平居中 */
+    justify-content: space-between; /* 均匀分布内容 */
+    padding: 20px;
   }
 
   .card:hover {
@@ -78,35 +67,37 @@ const cards = [
   }
 
   .card-image {
-    width: 20%;
-    height: 20%;
-    object-fit: contain;
+    width: 120px; /* 统一图像大小 */
+    height: 120px;
+    object-fit: contain; /* 保持图像比例 */
+    margin-bottom: 10px;
   }
 
   .card-content {
-    padding: 10px;
-    display: flex; /* Flexbox for content alignment */
-    flex-direction: column; /* Stack title and text vertically */
-    justify-content: flex-start; /* Align to the top */
-    padding: 10px; /* Padding for content */
-    text-align: center; /* Center text */
-    text-align: center; /* Center text within content */
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    text-align: center;
+    flex-grow: 1;
   }
 
   .card h3 {
     font-size: 1.25rem;
     color: #333;
-    margin-bottom: 10px;
+    margin: 10px 0;
   }
 
   .card p {
     font-size: 0.85rem;
     color: #666;
-    margin-bottom: 10px;
+    margin: 0;
+    padding: 0 10px; /* 添加内容内边距 */
   }
 
   .card a {
     display: inline-block;
+    margin-top: 20px;
     padding: 10px 20px;
     background-color: #007bff;
     color: #fff;
