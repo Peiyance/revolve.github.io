@@ -8,29 +8,40 @@ interface Props {
 const { authors } = Astro.props;
 ---
 
-<div class="flex flex-row gap-x-8 gap-y-4 flex-wrap justify-center">
-  {
-    authors.map((author) => (
-      <div class="flex flex-col items-center text-center">
-        <span class="text-xl flex flex-row">
+<div class="text-center">
+  <!-- Render all authors in one line -->
+  <p class="text-xl flex flex-wrap justify-center gap-x-4">
+    {
+      authors.map((author, index) => (
+        <>
           {author.url ? (
-            <a href={author.url} class="">
+            <a href={author.url} class="hover:underline">
               {author.name}
             </a>
           ) : (
             author.name
           )}
           {author.notes && (
-            <sup class="text-xl">
+            <sup>
               {author.notes.map(
-                (note, index, array) =>
-                  note + (index < array.length - 1 ? "," : "")
+                (note, i, array) =>
+                  note + (i < array.length - 1 ? "," : "")
               )}
             </sup>
           )}
-        </span>
-        {author.institution && <p>{author.institution}</p>}
-      </div>
-    ))
-  }
+          {index < authors.length - 1 && <span>,</span>}
+        </>
+      ))
+    }
+  </p>
+
+  <!-- Render all institutions in a separate line -->
+  <p class="text-md mt-2">
+    {
+      authors
+        .map((author) => author.institution)
+        .filter((institution, index, array) => array.indexOf(institution) === index) // Remove duplicates
+        .join(", ")
+    }
+  </p>
 </div>
