@@ -20,7 +20,7 @@ import YouTubeVideo from "../components/YouTubeVideo.astro";
 import LaTeX from "../components/LaTeX.astro";
 import poster from "../assets/poster.PNG";
 import outside from "../assets/outside.mp4";
-import intro1029 from "../assets/intro1029.png";
+import method_comparison from "../assets/method_comparison.png";
 import Splat from "../components/Splat.tsx"
 
 import CodeBlock from "../components/CodeBlock.astro";
@@ -98,7 +98,7 @@ export const components = {pre: CodeBlock}
 
 <HighlightedSection>
 
-## Abstract
+## About
 
 Recent advancements in large language models (LLMs) have significantly enhanced the ability of LLM-based systems to perform complex tasks through natural language processing and tool interaction. However, optimizing these LLM-based systems for specific tasks remains challenging, often requiring manual interventions like prompt engineering and hyperparameter tuning. Existing automatic optimization methods, such as textual feedback-based techniques (e.g., TextGrad), tend to focus on immediate feedback, analogous to using immediate derivatives in traditional numerical gradient descent. However, relying solely on such feedback can be limited when the adjustments made in response to this feedback are either too small or fluctuate irregularly, potentially slowing down or even stalling the optimization process.  To overcome these challenges, more adaptive methods are needed, especially in situations where the system’s response is evolving slowly or unpredictably. In this paper, we introduce **REVOLVE**, an optimization method that tracks how **R**esponses **EVOLVE** across iterations in LLM systems. By focusing on the evolution of responses over time, REVOLVE enables more stable and effective optimization by making thoughtful, progressive adjustments at each step. We evaluate the effectiveness of REVOLVE across three tasks: prompt optimization, solution optimization, and code optimization. Experimental results demonstrate that REVOLVE outperforms competitive baselines, achieving a **7.8%** improvement in prompt optimization, a **20.72%** gain in solution refinement, and a **29.17%** increase in code optimization. Additionally, REVOLVE converges in fewer iterations, resulting in significant computational savings. These advantages highlight its adaptability and efficiency, positioning REVOLVE as a valuable tool for optimizing LLM-based systems and accelerating the development of next-generation AI technologies.
 
@@ -108,12 +108,13 @@ Recent advancements in large language models (LLMs) have significantly enhanced 
 
 ## Motivation
 
-Examples of jailbreaks. (a) A malicious question that receives a refusal response from the LLM. (b) An affirmative response with detailed steps to implement the malicious question by adding a jailbreak prompt as the prefix. (c) A filtered-out error is triggered by the moderation guardrail, even when a successful jailbreak prompt is added. (d) An affirmative response using JAM, which combines a jailbreak prefix, the malicious question, and the cipher characters to bypass the guardrail.
+- REVOLVE is an optimization framework that enhances the stability and efficiency of AI system optimization by tracking the evolution of model responses across iterations. Building on textual feedback from LLMs, Revolve simulates higher-order optimization effects, ensuring that adjustments are guided not only by immediate feedback but also by the model’s performance trajectory, leading to faster and more stable optimization without relying on traditional derivative-based methods.
+- REVOLVE offers an intuitive API, built upon the foundation of [TextGrad] (https://github.com/zou-group/textgrad), that allows users to define custom optimization tasks and loss functions. This makes it an adaptable and effective tool for optimizing LLM-based systems across a range of applications, including prompt optimization, solution refinement, and code optimization.
 
 <Figure
     caption=""
   >
-    <Image source={intro1029} altText="Diagram of the transformer deep learning architecture." />
+    <Image source={method_comparison} altText="The illustrative comparison between REVOLVE and first-order optimization methods." />
 </Figure>
 
 
