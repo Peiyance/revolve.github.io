@@ -107,16 +107,52 @@ Recent advancements in large language models (LLMs) have significantly enhanced 
 
 
 ## Motivation
-<TwoColumns>
-<Figure
-    caption=""
-  >
-    <Image source={method_comparison} altText="The illustrative comparison between REVOLVE and first-order optimization methods." />
-</Figure>
+<div class="two-columns">
+  <!-- Left Column: Image -->
+  <div class="left-column">
+    <Figure caption="">
+      <Image source={method_comparison} altText="The illustrative comparison between REVOLVE and first-order optimization methods." />
+    </Figure>
+  </div>
 
-- REVOLVE is an optimization framework that enhances the stability and efficiency of AI system optimization by tracking the evolution of model responses across iterations. Building on textual feedback from LLMs, Revolve simulates higher-order optimization effects, ensuring that adjustments are guided not only by immediate feedback but also by the model’s performance trajectory, leading to faster and more stable optimization without relying on traditional derivative-based methods.
-- REVOLVE offers an intuitive API, built upon the foundation of [TextGrad] (https://github.com/zou-group/textgrad), that allows users to define custom optimization tasks and loss functions. This makes it an adaptable and effective tool for optimizing LLM-based systems across a range of applications, including prompt optimization, solution refinement, and code optimization.
-</TwoColumns>
+  <!-- Right Column: Text/List -->
+  <div class="right-column">
+    <ul>
+      <li>REVOLVE is an optimization framework that enhances the stability and efficiency of AI system optimization by tracking the evolution of model responses across iterations. Building on textual feedback from LLMs, Revolve simulates higher-order optimization effects, ensuring that adjustments are guided not only by immediate feedback but also by the model’s performance trajectory, leading to faster and more stable optimization without relying on traditional derivative-based methods.</li>
+      <li>REVOLVE offers an intuitive API, built upon the foundation of [TextGrad](https://github.com/zou-group/textgrad), that allows users to define custom optimization tasks and loss functions. This makes it an adaptable and effective tool for optimizing LLM-based systems across a range of applications, including prompt optimization, solution refinement, and code optimization.</li>
+    </ul>
+  </div>
+</div>
+
+<style>
+  .two-columns {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 20px;
+  }
+
+  .left-column, .right-column {
+    flex: 1;
+  }
+
+  .left-column {
+    max-width: 50%; /* Ensures the image takes up less than half of the space */
+  }
+
+  .right-column {
+    max-width: 50%;
+  }
+
+  .right-column ul {
+    list-style-type: disc;
+    padding-left: 20px;
+  }
+
+  .right-column li {
+    margin-bottom: 10px;
+  }
+</style>
 
 ## Examples
   <Application />
