@@ -72,4 +72,40 @@ const institutions = Array.from(institutionMap.entries());
     vertical-align: super;
     margin-right: 0.5rem;
   }
-</style
+</style>
+
+<div class="text-center">
+  <!-- Render all authors in one line with institution indices as superscript -->
+  <div class="flex justify-center flex-wrap gap-x-8 gap-y-4">
+    {
+      authorsWithIndices.map((author) => (
+        <div class="flex flex-col items-center">
+          <span class="author-name">
+            {author.url ? (
+              <a href={author.url} class="author-name hover:underline">
+                {author.name}
+              </a>
+            ) : (
+              author.name
+            )}
+            {author.institution && (
+              <sup class="superscript">{author.institutionIndex}</sup>
+            )}
+          </span>
+        </div>
+      ))
+    }
+  </div>
+
+  <!-- Render institutions with their indices in a row -->
+  <div class="institution-list">
+    {
+      institutions.map(([institution, index]) => (
+        <div class="institution">
+          <sup class="institution-index">{index}</sup>
+          {institution}
+        </div>
+      ))
+    }
+  </div>
+</div>
