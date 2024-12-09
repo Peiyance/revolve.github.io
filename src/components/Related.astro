@@ -1,12 +1,4 @@
 ---
-interface Props {
-  links: {
-    title: string;
-    url: string;
-  }[];
-}
-
-const { links } = Astro.props;
 ---
 
 <style>
@@ -30,16 +22,33 @@ const { links } = Astro.props;
   }
 </style>
 
-<h2 style="text-align:center; font-family: 'Noto Sans', sans-serif;">Related Links</h2>
-
 <p style="font-family: 'Noto Sans', sans-serif;">
   This project has been inspired by numerous excellent works! Below is a non-exhaustive list of key references:
 </p>
 
 <ul class="related-links-list">
-  {links.map(link => (
-    <li>
-      🔰 <a href={link.url} class="related-link">{link.title}</a>
-    </li>
-  ))}
+  <li>
+    🔰 <a href="https://github.com/stanfordnlp/dspy" class="related-link">
+      DSPy
+    </a> 
+    and 
+    <a href="https://github.com/google-deepmind/opro" class="related-link">
+      OPRO
+    </a>: Pioneering frameworks for leveraging LMs in diverse applications, which significantly influenced our approach.
+  </li>
+  <li>
+    🔰 <a href="https://github.com/microsoft/LMOps/tree/main/prompt_optimization" class="related-link">
+      ProTeGi
+    </a>: The term 'Textual Gradients' was inspired by ProTeGi’s prompt optimization methods.
+  </li>
+  <li>
+    🔰 <a href="https://github.com/noahshinn/reflexion" class="related-link">
+      Reflexion
+    </a>: A self-reflection framework that demonstrated the power of text-based reflection in optimization.
+  </li>
+  <li>
+    🔰 <a href="https://github.com/zou-group/textgrad" class="related-link">
+      TextGrad
+    </a>: Laying the foundation for implementing LLM-based "gradient" pipelines, TextGrad offers a streamlined interface for text optimization tasks, which directly contributed to the development of our approach.
+  </li>
 </ul>
