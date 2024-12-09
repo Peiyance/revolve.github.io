@@ -42,6 +42,30 @@ const institutions = Array.from(institutionMap.entries());
     font-size: 16px;
     color: #666; /* Example color */
   }
+
+  .institution {
+    display: flex;
+    align-items: center;
+    font-size: 16px;
+  }
+
+  .institution-index {
+    font-size: 14px;
+    color: #888;
+    margin-right: 8px;
+    vertical-align: super;
+  }
+
+  .author {
+    font-size: 16px;
+  }
+
+  .author-index {
+    font-size: 12px;
+    color: #888;
+    margin-left: 5px;
+    vertical-align: super;
+  }
 </style>
 
 <div class="text-center">
@@ -50,7 +74,7 @@ const institutions = Array.from(institutionMap.entries());
     {
       authorsWithIndices.map((author) => (
         <div class="flex flex-col items-center">
-          <span class="text-lg font-semibold">
+          <span class="author">
             {author.url ? (
               <a href={author.url} class="hover:underline">
                 {author.name}
@@ -59,7 +83,7 @@ const institutions = Array.from(institutionMap.entries());
               author.name
             )}
             {author.institution && (
-              <sup class="text-sm text-gray-500 ml-2">{author.institutionIndex}</sup>
+              <sup class="author-index">{author.institutionIndex}</sup>
             )}
           </span>
         </div>
@@ -67,13 +91,13 @@ const institutions = Array.from(institutionMap.entries());
     }
   </div>
 
-  <!-- Render institutions with their indices on a separate line -->
-  <p class="text-lg mt-4">
+  <!-- Render institutions with their indices as superscripts on a separate line -->
+  <div class="mt-8">
     {institutions.map(([institution, index]) => (
-      <span key={index}>
-        <strong>{index}</strong> {institution}
-        {institutions.indexOf([institution, index]) < institutions.length - 1 && ", "}
-      </span>
+      <div class="institution">
+        <sup class="institution-index">{index}</sup>
+        <span>{institution}</span>
+      </div>
     ))}
-  </p>
+  </div>
 </div>
