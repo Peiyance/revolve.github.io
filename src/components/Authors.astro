@@ -15,6 +15,8 @@ const authorsWithIndices = authors.map((author) => {
     institutionMap.set(author.institution, institutionIndex);
     institutionIndex++;
   }
+
+  // Add superscript for Haohan Wang and include institution index for all
   return {
     ...author,
     institutionIndex: institutionMap.get(author.institution),
@@ -72,28 +74,23 @@ const institutions = Array.from(institutionMap.entries());
 </style>
 
 <div class="text-center">
-  <!-- Render all authors in one line with institution indices as superscript -->
+  <!-- Render all authors with their institution indices and superscript if applicable -->
   <div class="flex justify-center flex-wrap gap-2">
     {authorsWithIndices.map((author) => (
-      <span key={author.name} class="author-name">
-        {author.name}
-        {author.superscript && (
-          <sup class="superscript">{author.superscript}</sup>
-        )}
-        {author.institutionIndex && (
-          <sup class="superscript">{author.institutionIndex}</sup>
-        )}
-        {author !== authorsWithIndices[authorsWithIndices.length - 1] && ", "}
+      <span key={author.name}>
+        <a href={author.url} class="author-name">{author.name}</a>
+        {author.superscript && <span class="superscript">{author.superscript}</span>}
+        <span class="superscript">{` ${author.institutionIndex}`}</span>
       </span>
     ))}
   </div>
 
-  <!-- Render the institution list in a row -->
+  <!-- Render institution list with indices -->
   <div class="institution-list">
     {institutions.map(([institution, index]) => (
       <span key={institution} class="institution">
         {institution}
-        <sup class="institution-index">{index}</sup>
+        <span class="institution-index">{` ${index}`}</span>
       </span>
     ))}
   </div>
