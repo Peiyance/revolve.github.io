@@ -19,14 +19,13 @@ const authorsWithIndices = authors.map((author) => {
     ...author,
     institutionIndex: institutionMap.get(author.institution),
   };
-});
-
+}
 ---
 
 <style>
   /* Define a custom font style for author names */
   .author-name {
-    font-family: 'Cinzel Decorative', sans-serif;
+    font-family: 'Arial', sans-serif;
     font-weight: bold;
     font-size: 18px;
     color: #333; /* Example color */
@@ -39,7 +38,6 @@ const authorsWithIndices = authors.map((author) => {
     color: #666; /* Example color */
   }
 </style>
-
 
 <div class="text-center">
   <!-- Render all authors in one line with institution indices as superscript -->
@@ -64,15 +62,15 @@ const authorsWithIndices = authors.map((author) => {
     }
   </div>
 
-  <!-- Render unique institutions with their indices on a separate line -->
+  <!-- Render institutions with their indices on a separate line -->
   <p class="text-lg mt-4">
     {
-      uniqueInstitutions.map((institution, index) => (
+      authorsWithIndices.map((author, index) => author.institution ? (
         <span key={index} class="text-md institution-text">
-          <sup class="text-sm text-gray-500">{institutionMap.get(institution)}</sup> {institution}
-          {index < uniqueInstitutions.length - 1 && <span class="mr-4"/>}
+          <sup class="text-sm text-gray-500">{author.institutionIndex}</sup> {author.institution}
+          {index < authorsWithIndices.length - 1 && <span class="mr-4"/>}
         </span>
-      ))
+      ) : null)
     }
   </p>
 </div>
