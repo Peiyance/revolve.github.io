@@ -21,10 +21,6 @@ const authorsWithIndices = authors.map((author) => {
   };
 });
 
-// Remove duplicated institution names
-const uniqueInstitutions = authors
-  .map(author => author.institution)
-  .filter((institution, index, self) => self.indexOf(institution) === index);
 ---
 
 <style>
