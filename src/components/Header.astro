@@ -15,6 +15,27 @@ interface Props {
 const { title, authors, conference, notes, links } = Astro.props as Props;
 ---
 
+<style>
+  /* Define a font family for the entire component */
+  .custom-font {
+    font-family: 'Helvetica', sans-serif;
+  }
+
+  /* Define specific font styles for individual elements */
+  h1 {
+    font-family: 'Arial', sans-serif;
+    font-weight: bold;
+    color: #333; /* Example color */
+  }
+
+  p {
+    font-family: 'Roboto', sans-serif;
+    font-size: 16px;
+    color: #666; /* Example color */
+  }
+</style>
+
+
 <header class="flex flex-col gap-10 items-center mb-6">
   <h1>{title}</h1>
   <div class="flex flex-col gap-6 items-center">
