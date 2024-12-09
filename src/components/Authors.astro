@@ -11,13 +11,16 @@ const { authors } = Astro.props;
 const institutionMap = new Map();
 let institutionIndex = 1;
 const authorsWithIndices = authors.map((author) => {
-  if (!institutionMap.has(author.institution)) {
-    institutionMap.set(author.institution, institutionIndex);
+  const normalizedInstitution = author.institution.trim().toLowerCase();
+  
+  if (!institutionMap.has(normalizedInstitution)) {
+    institutionMap.set(normalizedInstitution, institutionIndex);
     institutionIndex++;
   }
+  
   return {
     ...author,
-    institutionIndex: institutionMap.get(author.institution),
+    institutionIndex: institutionMap.get(normalizedInstitution),
   };
 });
 
