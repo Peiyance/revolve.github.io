@@ -20,7 +20,28 @@ const authorsWithIndices = authors.map((author) => {
     institutionIndex: institutionMap.get(author.institution),
   };
 });
+
+// Filter out duplicate institutions
+const uniqueInstitutions = Array.from(new Set(authors.map(author => author.institution)));
+
 ---
+
+<style>
+  /* Define a custom font style for author names */
+  .author-name {
+    font-family: 'Cinzel Decorative', sans-serif;
+    font-weight: bold;
+    font-size: 18px;
+    color: #333; /* Example color */
+  }
+
+  /* Define a custom font style for institution text */
+  .institution-text {
+    font-family: 'Roboto', sans-serif;
+    font-size: 14px;
+    color: #666; /* Example color */
+  }
+</style>
 
 <div class="text-center">
   <!-- Render all authors in one line with institution indices as superscript -->
