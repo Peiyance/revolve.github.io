@@ -21,6 +21,8 @@ const authorsWithIndices = authors.map((author) => {
   };
 });
 
+// Extract institution names and their indices
+const institutions = Array.from(institutionMap.entries());
 ---
 <style>
   /* Define a font family for the entire component */
@@ -67,13 +69,11 @@ const authorsWithIndices = authors.map((author) => {
 
   <!-- Render institutions with their indices on a separate line -->
   <p class="text-lg mt-4">
-    {
-      authorsWithIndices.map((author, index) => author.institution ? (
-        <span key={index} class="text-md">
-          <sup class="text-sm text-gray-500">{author.institutionIndex}</sup> {author.institution}
-          {index < authorsWithIndices.length - 1 && <span class="mr-4"/>}
-        </span>
-      ) : null)
-    }
+    {institutions.map(([institution, index]) => (
+      <span key={index}>
+        <strong>{index}</strong> {institution}
+        {institutions.indexOf([institution, index]) < institutions.length - 1 && ", "}
+      </span>
+    ))}
   </p>
 </div>
