@@ -25,15 +25,22 @@ const authorsWithIndices = authors.map((author) => {
 const institutions = Array.from(institutionMap.entries());
 ---
 <style>
-  /* Define a font family for the entire component */
+  /* Set Google Sans font for the entire component */
   .custom-font {
-    font-family: 'Roboto', sans-serif;
+    font-family: 'Google Sans', sans-serif;
   }
 
   /* Style for author name */
   .author-name {
-    font-weight: bold;
+    color: hsl(204, 86%, 53%) !important;
+    font-family: 'Google Sans', sans-serif;
     font-size: 1.2rem;
+    font-weight: normal; /* No bold */
+  }
+
+  /* Hover effect for author name */
+  .author-name:hover {
+    text-decoration: underline;
   }
 
   /* Style for superscript to reduce space */
@@ -52,14 +59,15 @@ const institutions = Array.from(institutionMap.entries());
   }
 
   .institution {
+    font-family: 'Google Sans', sans-serif;
     font-size: 1rem;
-    font-weight: normal;
   }
 
-  .institution-superscript {
+  .institution-index {
     font-size: 0.8rem;
+    color: #888;
     vertical-align: super;
-    margin-left: 0.2rem; /* Adjust space between index and institution */
+    margin-right: 0.2rem; /* Adjust the superscript distance */
   }
 </style>
 
@@ -71,7 +79,7 @@ const institutions = Array.from(institutionMap.entries());
         <div class="flex flex-col items-center">
           <span class="author-name">
             {author.url ? (
-              <a href={author.url} class="hover:underline">
+              <a href={author.url} class="author-name">
                 {author.name}
               </a>
             ) : (
@@ -82,15 +90,19 @@ const institutions = Array.from(institutionMap.entries());
             )}
           </span>
         </div>
-      ))}
+      ))
+    }
   </div>
 
-  <!-- Display the institution list in a row -->
+  <!-- Render institutions in a row with their indices as superscript -->
   <div class="institution-list">
-    {institutions.map(([institution, index]) => (
-      <div class="institution">
-        <span class="institution-superscript">{index}</span>{institution}
-      </div>
-    ))}
+    {
+      institutions.map(([institution, index]) => (
+        <div class="flex items-center">
+          <sup class="institution-index">{index}</sup>
+          <span class="institution">{institution}</span>
+        </div>
+      ))
+    }
   </div>
 </div>
