@@ -30,41 +30,36 @@ const institutions = Array.from(institutionMap.entries());
     font-family: 'Roboto', sans-serif;
   }
 
-  /* Define specific font styles for individual elements */
-  h1 {
-    font-family: 'Roboto', sans-serif;
+  /* Style for author name */
+  .author-name {
     font-weight: bold;
-    color: #333; /* Example color */
+    font-size: 1.2rem;
   }
 
-  p {
-    font-family: 'Roboto', sans-serif;
-    font-size: 16px;
-    color: #666; /* Example color */
+  /* Style for superscript to reduce space */
+  .superscript {
+    font-size: 0.8rem;
+    vertical-align: super;
+    margin-left: 0.2rem; /* Adjust the distance between author name and superscript */
+  }
+
+  /* Styling for institutions displayed in a row */
+  .institution-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+    justify-content: center;
   }
 
   .institution {
-    display: flex;
-    align-items: center;
-    font-size: 16px;
+    font-size: 1rem;
+    font-weight: normal;
   }
 
-  .institution-index {
-    font-size: 14px;
-    color: #888;
-    margin-right: 8px;
+  .institution-superscript {
+    font-size: 0.8rem;
     vertical-align: super;
-  }
-
-  .author {
-    font-size: 16px;
-  }
-
-  .author-index {
-    font-size: 12px;
-    color: #888;
-    margin-left: 5px;
-    vertical-align: super;
+    margin-left: 0.2rem; /* Adjust space between index and institution */
   }
 </style>
 
@@ -74,7 +69,7 @@ const institutions = Array.from(institutionMap.entries());
     {
       authorsWithIndices.map((author) => (
         <div class="flex flex-col items-center">
-          <span class="author">
+          <span class="author-name">
             {author.url ? (
               <a href={author.url} class="hover:underline">
                 {author.name}
@@ -83,20 +78,18 @@ const institutions = Array.from(institutionMap.entries());
               author.name
             )}
             {author.institution && (
-              <sup class="author-index">{author.institutionIndex}</sup>
+              <sup class="superscript">{author.institutionIndex}</sup>
             )}
           </span>
         </div>
-      ))
-    }
+      ))}
   </div>
 
-  <!-- Render institutions with their indices as superscripts on a separate line -->
-  <div class="mt-8">
+  <!-- Display the institution list in a row -->
+  <div class="institution-list">
     {institutions.map(([institution, index]) => (
       <div class="institution">
-        <sup class="institution-index">{index}</sup>
-        <span>{institution}</span>
+        <span class="institution-superscript">{index}</span>{institution}
       </div>
     ))}
   </div>
