@@ -18,6 +18,7 @@ const authorsWithIndices = authors.map((author) => {
   return {
     ...author,
     institutionIndex: institutionMap.get(author.institution),
+    superscript: author.name === "Haohan Wang" ? "†" : undefined, // Add dagger for Haohan Wang
   };
 });
 
@@ -72,36 +73,28 @@ const institutions = Array.from(institutionMap.entries());
 
 <div class="text-center">
   <!-- Render all authors in one line with institution indices as superscript -->
-  <div class="flex justify-center flex-wrap gap-x-8 gap-y-4">
-    {
-      authorsWithIndices.map((author) => (
-        <div class="flex flex-col items-center">
-          <span class="author-name">
-            {author.url ? (
-              <a href={author.url} class="author-name">
-                {author.name}
-              </a>
-            ) : (
-              author.name
-            )}
-            {author.institution && (
-              <sup class="superscript">{author.institutionIndex}</sup>
-            )}
-          </span>
-        </div>
-      ))
-    }
+  <div class="flex justify-center flex-wrap gap-2">
+    {authorsWithIndices.map((author) => (
+      <span key={author.name} class="author-name">
+        {author.name}
+        {author.superscript && (
+          <sup class="superscript">{author.superscript}</sup>
+        )}
+        {author.institutionIndex && (
+          <sup class="superscript">{author.institutionIndex}</sup>
+        )}
+        {author !== authorsWithIndices[authorsWithIndices.length - 1] && ", "}
+      </span>
+    ))}
   </div>
 
-  <!-- Render institutions in a row with their indices as superscript -->
+  <!-- Render the institution list in a row -->
   <div class="institution-list">
-    {
-      institutions.map(([institution, index]) => (
-        <div class="flex items-center">
-          <sup class="institution-index">{index}</sup>
-          <span class="institution">{institution}</span>
-        </div>
-      ))
-    }
+    {institutions.map(([institution, index]) => (
+      <span key={institution} class="institution">
+        {institution}
+        <sup class="institution-index">{index}</sup>
+      </span>
+    ))}
   </div>
 </div>
