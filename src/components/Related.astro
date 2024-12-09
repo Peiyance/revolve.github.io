@@ -1,0 +1,45 @@
+---
+interface Props {
+  links: {
+    title: string;
+    url: string;
+  }[];
+}
+
+const { links } = Astro.props;
+---
+
+<style>
+  /* Global style for the component */
+  .related-link {
+    color: hsl(204, 86%, 53%) !important;
+    text-decoration: none;
+  }
+
+  .related-link:hover {
+    text-decoration: underline;
+  }
+
+  /* Styling for the list */
+  .related-links-list {
+    font-family: 'Noto Sans', sans-serif;
+  }
+
+  .related-links-list li {
+    margin-bottom: 8px;
+  }
+</style>
+
+<h2 style="text-align:center; font-family: 'Noto Sans', sans-serif;">Related Links</h2>
+
+<p style="font-family: 'Noto Sans', sans-serif;">
+  This project has been inspired by numerous excellent works! Below is a non-exhaustive list of key references:
+</p>
+
+<ul class="related-links-list">
+  {links.map(link => (
+    <li>
+      🔰 <a href={link.url} class="related-link">{link.title}</a>
+    </li>
+  ))}
+</ul>
