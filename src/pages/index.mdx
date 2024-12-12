@@ -111,8 +111,24 @@ export const components = {pre: CodeBlock}
 </HighlightedSection>
 
 
-<h2 style="text-align:center">Motivation</h2>
- - 🔰 REVOLVE is an optimization framework that enhances the stability and efficiency of AI system optimization by tracking the evolution of model responses across iterations. Building on textual feedback from LLMs, Revolve simulates higher-order optimization effects, ensuring that adjustments are guided not only by immediate feedback but also by the model’s performance trajectory, leading to faster and more stable optimization without relying on traditional derivative-based methods.
+<h2 style="text-align:center">About</h2>
+
+How can we unleash the full potential of LLMs? How do we achieve stable and efficient optimization in complex tasks? Traditional multi-agent optimization systems typically rely on immediate feedback from evaluators to adjust LLM outputs. However, these methods, based solely on local feedback, often face stagnation or unstable adjustments, especially when responses evolve slowly or fluctuate significantly.
+
+**We believe optimization goes beyond feedback!** REVOLVE tracks the evolution of model responses over iterations, simulating second-order optimization effects (similar to how Hessian matrices capture curvature in numerical optimization). This enables REVOLVE to deliver more robust and efficient optimization. Specifically:
+
+- 🌟 **Tracking Response Evolution to Break Bottlenecks**  
+REVOLVE overcomes the limitations of traditional feedback-driven optimization by tracking how responses evolve over time. It helps models escape stagnation, overcome local optima, and achieve continuous performance improvements.
+
+- 🚀 **Efficient Iteration and Rapid Convergence**  
+By combining feedback with the trends of response evolution (akin to the global curvature information in Hessian matrices), REVOLVE offers a more comprehensive perspective for optimization. This reduces the number of iterations required, saves computational costs, and delivers significant performance gains.
+
+- 🎯 **Task-Driven Performance Enhancement**  
+REVOLVE optimizes prompts to generate more effective instructions, significantly improving LLM performance across complex tasks. Whether solving challenging problems or generating precise answers, the optimization process achieves superior outcomes with greater efficiency.
+
+- 🔧 **Broad Adaptability Across Multiple Tasks**  
+From prompt optimization to code optimization, REVOLVE supports diverse task scenarios and is compatible with various LLMs (e.g., Llama and GPT series), enabling widespread performance improvements across AI systems.
+
 - 🔰 REVOLVE offers an intuitive API, built upon the foundation of <a href="https://github.com/zou-group/textgrad" style="color:hsl(204, 86%, 53%) !important;;">TextGrad</a>, that allows users to define custom optimization tasks and loss functions. This makes it an adaptable and effective tool for optimizing LLM-based systems across a range of applications, including prompt optimization, solution refinement, and code optimization.
 
 
